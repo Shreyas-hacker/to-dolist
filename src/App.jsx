@@ -1,5 +1,6 @@
 import React from "react";
 import List from "./ToDoList";
+import InputArea from "./InputArea";
 
 function App(){
     const [inputText, setText] = React.useState("");
@@ -28,12 +29,7 @@ function App(){
         <div className="heading">
             <h1>To-Do List</h1>
         </div>
-        <div className="form">
-            <input onChange={handleChange} type="text" value={inputText}/>
-            <button onClick={handleClick}>
-                <span>Add</span>
-            </button>
-        </div>
+        <InputArea typing={handleChange} adding={handleClick} itemName={inputText}/>
         <ul>
             {items.map((item,index)=>{
                 return <List key={index} id= {index} listItems={item} doneItem={deleteItem}/>
